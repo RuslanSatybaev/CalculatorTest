@@ -1,3 +1,5 @@
+import exception.CanNotConvertedException;
+
 public class Logic {
 
     public static void logic(String firstString, String arithmetic, String secondString) {
@@ -15,8 +17,7 @@ public class Logic {
                 second = RomanArabicConverter.romanToArabic(secondString);
                 flag = true;
             } catch (Exception e1) {
-                System.out.println("Wrong data");
-                System.exit(0);
+                throw new CanNotConvertedException("Different number systems are used at the same time");
             }
         }
         if (first < 0 || first > 10 || second < 0 || second > 10) {
@@ -43,13 +44,14 @@ public class Logic {
             }
         } catch (Exception e) {
             System.out.println("Inappropriate arithmetic operation");
-            System.exit(0);
             e.printStackTrace();
         }
         if (flag) {
             String roman = RomanArabicConverter.arabicToRoman(result);
             System.out.println(roman);
-        } else System.out.println(result);
+        } else {
+            System.out.println(result);
+        }
     }
 }
 

@@ -2,7 +2,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CalculatorOperationTest {
     private CalculatorOperation calculatorOperation;
@@ -42,6 +42,14 @@ public class CalculatorOperationTest {
         int expectedDivided = 2;
         int resultDivided = calculatorOperation.divide(30, 15);
         assertEquals(expectedDivided, resultDivided);
+    }
+
+    @Test
+    public void divideRomeOperand() {
+        String firstOperand = "VI";
+        String secondOperand = "III";
+//       String resultDivided = calculatorOperation.divide(30, 15);
+//        assertEquals("II", resultDivided);
     }
 
     @After

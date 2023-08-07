@@ -1,3 +1,5 @@
+import exception.CanNotConvertedException;
+
 import java.util.List;
 
 public class RomanArabicConverter {
@@ -21,8 +23,8 @@ public class RomanArabicConverter {
         return result;
     }
     public static String arabicToRoman(int number) {
-        if ((number <= 0) || (number > 4000)) {
-            throw new IllegalArgumentException(number + " is not in range (0,4000]");
+        if (number <= 0) {
+            throw new CanNotConvertedException("There are no negative numbers in the roman system");
         }
 
         List<RomanNumeral> romanNumerals = RomanNumeral.getReverseSortedValues();
