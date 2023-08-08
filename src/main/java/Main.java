@@ -7,8 +7,10 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String read = scanner.nextLine();
+        String read;
+        try (Scanner scanner = new Scanner(System.in)) {
+            read = scanner.nextLine();
+        }
         String[] array = read.split("\\s");
         if (array.length != 3) {
             throw new NotFormatException("Format of the mathematical operation does not satisfy");
